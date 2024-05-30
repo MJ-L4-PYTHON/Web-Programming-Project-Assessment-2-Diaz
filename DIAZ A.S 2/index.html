@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMEPAGE</title>
+    <link rel="icon" type="image/ico" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <video autoplay loop muted plays-inline class="background-clip">
+            <source src="hbg.mp4" type="video/mp4">
+        </video>
+        <a href="p1.html" class="center-button" style="--clr:#FF0015"><span>Enter</span></a>
+        
+        <div class="fnaf">
+        <h1>Five <br />
+            Nights <br />
+            At <br />
+            Freddys <br />
+        </h1>
+        </div>
+    </div>
+
+    <div class="music">
+        <button id="toggle"><img id="icon" src="mute.png" alt="mute"></button>
+    </div>
+
+
+
+
+   
+    <script>
+        const toggleButton = document.getElementById("toggle");
+        const icon = document.getElementById("icon");
+        let audio = new Audio("bgm1.mp3");
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                icon.src = "mute.png";
+                icon.alt = "Mute";
+            } else {
+                audio.play();
+                icon.src = "music.png";
+                icon.alt = "Play Music";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        toggleButton.addEventListener("click", toggleMusic);
+    </script>
+</body>
+</html>

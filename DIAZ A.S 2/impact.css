@@ -1,0 +1,280 @@
+@font-face {
+    font-family: myFont;
+    src: url(vcr.ttf);
+}
+
+*{
+    font-family: myFont;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+  }
+
+:root {
+    --primary: #ff3700;
+}
+
+body {
+    background: #000000; 
+    color: white;
+}
+
+header {
+    position: absolute;
+    top: -1.2em;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    z-index: 10;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.nav li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav li:hover a {
+    color: var(--primary);
+}
+
+.dropdown {
+    min-width: 13em;
+    position: relative;
+    width: 50px;
+    height: auto;
+    right: -70px;
+    top: -43%;
+}
+
+.dropdown * {
+    box-sizing: border-box;
+    line-height: 1.5em;
+}
+
+.select {
+    background: black;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px #3f3f3f solid;
+    border-radius: 0.5em;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.select-clicked {
+    border: 1px black solid;
+    box-shadow: 0 0 0.8em #ff0000;
+}
+
+.select:hover {
+    background: #373737;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-left: 6px solid #fff;
+    transition: 0.3s;
+}
+
+.caret-rotate {
+    transform: rotate(90deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 0em 0.5em;
+    background: #292929;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: #878787;
+    position: absolute;
+    top: 3em;
+    left: 0;
+    width: 100%;
+    height: 0em;
+    transition: 300ms cubic-bezier(0.77,0,0.18,1);
+    z-index: 1;
+    overflow-y: scroll;
+}
+
+.menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.menu::-webkit-scrollbar-track {
+    background: #404040;
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background: #727272;
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+    background: #9e9e9e;
+}
+
+.menu li {
+    padding: 0.7em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background: #242424;
+}
+
+.active {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+.text-fade-in {
+    animation: textFade 300ms ease-out;
+}
+
+.menu-open {
+    border: 1px #383838 solid;
+    height: 15em;
+}
+
+@keyframes textFade {
+    0% {
+        transform: translateX(-1em);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.background-clip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    scale: 100%;
+}
+
+@keyframes cursor {
+    50% { border-color: transparent }
+}
+
+@keyframes typing {
+    from {width: 0 }
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+    }
+
+    to {
+        margin-left: 0%;
+    }
+}
+
+@keyframes zoom {
+    from {
+        scale: 120%;
+    }
+    
+    to {
+        scale: 150%;
+    }
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgimg-1 {
+    background-image: url("other/bgimg-1.png");
+    min-height: 85%;
+  }
+
+
+  
+  .bgimg-2 {
+    background-image: url("other/bgimg-2.png");
+    min-height: 80%;
+  }
+  
+  .bgimg-3 {
+    background-image: url("other/bgimg-3.png");
+    min-height: 90%;
+  }
+  
+  .caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    background-color: #252525;
+    padding: 34px;
+  }
+
+  .caption h1 {
+    letter-spacing: 5px;
+    line-height: 40px;
+  }
+  
+  .caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+    font-size: 25px;
+    letter-spacing: 10px;
+  }
+  
+  h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 20px "Lato", sans-serif;
+    color: #111;
+  }
+  
+  /* Turn off parallax scrolling for tablets and phones */
+  @media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+      background-attachment: scroll;
+    }
+  }
